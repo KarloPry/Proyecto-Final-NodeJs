@@ -1,0 +1,27 @@
+{
+  "name": "proyecto-final-nodejs",
+  "version": "1.0.0",
+  "description": "An API REST using expressjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KarloPry/Proyecto-Final-NodeJs.git"
+  },
+  "keywords": [
+    "API",
+    "Database",
+    "Management"
+  ],
+  "author": "Karlo Paz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KarloPry/Proyecto-Final-NodeJs/issues"
+  },
+  "homepage": "https://github.com/KarloPry/Proyecto-Final-NodeJs#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
