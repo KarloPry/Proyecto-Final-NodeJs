@@ -20,15 +20,15 @@ function loadEmployees(){
     axios.get(url + "/employee", headers)
     .then(function(res){
         console.log(res)
-        displayPokemon(res.data.message)
+        displayEmployee(res.data.message)
     }).catch(function(err){
         console.log(err)
     })
 }
 
-function displayPokemon(pokemon){
+function displayEmployee(employee){
     var body = document.querySelector('body')
-    for(var i = 0; i < pokemon.length; i++){
-        body.innerHTML +=  `<h3>${pokemon[i].pok_name}</h3>`
+    for(var i = 0; i < employee.length; i++){
+        body.innerHTML +=  `<table style="width:70%;margin-left:auto;margin-right:auto;"><td>${employee[i].nombreEmpleado}</td> <td>${employee[i].apellidosEmpleado}</td><td>${employee[i].telefonoEmpleado}</td><td>${employee[i].correoEmpleado}</td><td>${employee[i].direccionEmpleado }</td></table>`
     }
 }

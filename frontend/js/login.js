@@ -9,7 +9,7 @@ function init(){
         document.querySelector('.btn-primary').addEventListener('click', login);
     }
     else{
-        window.location.href = 'employeeDb.html'
+        window.location.href = 'menuUsuario.html'
     }
 }
 
@@ -31,7 +31,7 @@ function login (){
         if(res.data.code===200){
             alert("Inicio exitoso")
             localStorage.setItem('token', res.data.message)
-            window.location.href = 'pokedex.html'
+            window.location.href = 'menuUsuario.html'
         }
         else {
             alert("Usuario y/o contraseña incorrectos")

@@ -20,9 +20,9 @@ app.get(index)
 
 app.use('/user',user)
 
-//app.use(auth)
+app.use(auth)
 
-app.use('/employees',employee)
+app.use('/employee',employee)
 
 app.use(notFound)
 
