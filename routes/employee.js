@@ -6,7 +6,7 @@ const db = require('../config/database')
 employee.post('/',async(req,res,next)=>{
     const {idEmpleado,nombreEmpleado,apellidosEmpleado,telefonoEmpleado,correoEmpleado,direccionEmpleado}=req.body
         if (idEmpleado&&nombreEmpleado&&apellidosEmpleado&&telefonoEmpleado&&correoEmpleado&&direccionEmpleado){
-            let query = `INSERT INTO empleados(idEmpleado,nombreEmpleado,apellidosEmpleado, telefonoEmpleado, correoEmpleado, direccionEmpleado) VALUES (${idEmpleado},'${nombreEmpleado}','${apellidosEmpleado}',${telefonoEmpleado},'${correoEmpleado}','${direccionEmpleado}')`
+            let query = `INSERT INTO empleados(idEmpleado,nombreEmpleado,apellidosEmpleado, telefonoEmpleado, correoEmpleado, direccionEmpleado) VALUES (${idEmpleado},'${nombreEmpleado}','${apellidosEmpleado}','${telefonoEmpleado}','${correoEmpleado}','${direccionEmpleado}')`
         const rows = await db.query(query)
         if (rows.affectedRows == 1){
             return res.status(201).json({code:200, message: 'Empleado insertado correctamente'})
