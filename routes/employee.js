@@ -33,7 +33,7 @@ employee.put("/:id([0-9]{1,3})",async(req,res,next)=>{
     const {nombreEmpleado,apellidosEmpleado,telefonoEmpleado,correoEmpleado,direccionEmpleado} = req.body
     if (nombreEmpleado&&apellidosEmpleado&&telefonoEmpleado&&correoEmpleado&&direccionEmpleado){
         let query = `UPDATE empleados SET nombreEmpleado='${nombreEmpleado}',apellidosEmpleado='${apellidosEmpleado}',`
-        query += `telefonoEmpleado=${pok_weight},correoEmpleado='${correoEmpleado}',direccionEmpleado='${direccionEmpleado}' WHERE idEmpleado=${req.params.id};`        
+        query += `telefonoEmpleado='${telefonoEmpleado}',correoEmpleado='${correoEmpleado}',direccionEmpleado='${direccionEmpleado}' WHERE idEmpleado=${req.params.id};`        
         const rows = await db.query(query)
         if (rows.affectedRows == 1){
             return res.status(200).json({code:200, message: 'Empleado actualizado correctamente'})
