@@ -9,34 +9,47 @@ function init (){
                 'Authorization': 'bearer '+ localStorage.getItem('token')
             }
         }
-        loadEmployees()
+        document.querySelector('.btn-primary').addEventListener('click', registerEmployee);
     }
     else{
         window.location.href = 'index.html'
     }
 }
-function loadEmployees(){
-    axios.get(url + "/employee", headers)
-    .then(function(res){
-        console.log(res)
-        displayEmployee(res.data.message)
+
+function registerEmployee (){
+    var name = document.getElementById('input-name').value ;
+    var lastName = document.getElementById('input-lastname').value;
+    var mail = document.getElementById('input-mail').value;
+    var phone = document.getElementById('input-phone').value;
+    var address = document.getElementById('input-address').value;
+
+    console.log(name,lastName,mail,phone,address)
+
+    axios({
+        method: 'post',
+        url:    'http://localhost:3000/employee',
+        data:   {
+            nombreEmpleado: name,
+            apellidosEmpleado: lastName,
+            telefonoEmpleado: phone,
+            correoEmpleado: mail,
+            direccionEmpleado: address
+        },
+        headers: {
+            'Authorization': 'bearer '+ localStorage.getItem('token')
+        }
+    }).then(function (res){
+        // console.log(res)
+        // axios.get(url + "/employee", headers)
+        // .then(function(res){
+        //     console.log(res)
+        //     displayEmployee(res.data.message)
+        // }).catch(function(err){
+        //     console.log(err)
+        // })    
+        var mail = document.getElementById('input-mail').value;
+        window.location.href = 'menuUsuario.html'
     }).catch(function(err){
         console.log(err)
     })
-}
-
-function displayEmployee(employee){
-    console.log("Displaying...")
-    var body = document.querySelector('body')
-    body.innerHTML += `<table style="width:70%;margin-left:auto;margin-right:auto;">`
-    for(var i = 0; i < employee.length; i++){
-        var table = document.querySelector('table')
-        if (i == 0){
-            table.innerHTML += `<th>Nombre de empleado</th><th>Apellidos del empleado</th><th>Telefono del empleado</th><th>Correo del emplado</th><th>Dirección del empleado</th>`
-        }
-        var table = document.querySelector('table')
-        table.innerHTML +=  `<td>${employee[i].nombreEmpleado}</td> <td>${employee[i].apellidosEmpleado}</td><td>${employee[i].telefonoEmpleado}</td><td>${employee[i].correoEmpleado}</td><td>${employee[i].direccionEmpleado }</td>`
-    }
-    body.innerHTML += `</table>`
-
 }
