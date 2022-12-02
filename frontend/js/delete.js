@@ -36,21 +36,22 @@ function displayEmployee(employee){
         }
         var table = document.querySelector('table')
         table.innerHTML +=  `<td>${employee[i].nombreEmpleado}</td> <td>${employee[i].apellidosEmpleado}</td><td>${employee[i].telefonoEmpleado}</td><td>${employee[i].correoEmpleado}</td><td>${employee[i].direccionEmpleado }</td>
-        <td><button style="margin-left:auto;margin-right:auto;",onclick="deleteEmployee(${employee[i].idEmployee})">Eliminar</button></td>`
+        <td><button style="margin-left:auto;margin-right:auto;"onclick="deleteEmployee(${employee[i].idEmpleado})">Eliminar</button></td>`
     }
     body.innerHTML += `</table>`
 
 }
 
-async function deleteEmployee(id) {
+function deleteEmployee(id) {
     axios({
         method: 'delete',
-        url: 'http://localhost:3000/employee',
-        data: {
-            idEmployee: id
-        },
+        url: 'http://localhost:3000/employee/'+id,
         headers:{
             'Authorization': 'bearer '+ localStorage.getItem('token')
         }
+    }).then(function (res){
+        window.location.reload()
+    }).catch(function(err){
+        console.log(err)
     })
 }
