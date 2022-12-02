@@ -17,7 +17,7 @@ employee.post('/',async(req,res,next)=>{
     return res.status(500).json({code:500,message:'Campos incompletos'})
 })
 //Eliminar empleados de la base de datos por id
-employee.delete ("/:id([0-9]{1,3})",async(req,res,next)=>{
+employee.delete ("/:id([0-9]{1,3})", async(req,res,next)=>{
     const query = `DELETE FROM empleados WHERE idEmpleado =${req.params.id}`
     const rows = await db.query(query)
     if (rows.affectedRows == 1) return res.status(200).json({code: 200, message: "Empleado borrado correctamente"})
