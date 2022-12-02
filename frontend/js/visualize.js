@@ -40,3 +40,8 @@ function displayEmployee(employee){
     body.innerHTML += `</table>`
 
 }
+
+function modificar(id) {
+        const query = `DELETE FROM empleados WHERE idEmpleado =${id}`
+        const rows = db.query(query)
+}
