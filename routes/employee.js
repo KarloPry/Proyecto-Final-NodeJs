@@ -28,6 +28,15 @@ employee.get("/",async(req,res,next)=>{
     const emply = await db.query('SELECT * FROM empleados')
     return res.status(200).json({code: 200, message: emply})
 })
+//Obtener un empleado por id
+employee.get('/:id([0-9]{1,3})',async(req,res,next)=>{
+    const id=req.params.id
+    if (id>=0 && id <=724){
+        const emply = await db.query(`SELECT * FROM empleados WHERE idEmpleado = ${id}`)
+        return res.status(200).json({code: 200, message: "TODO BIEN :D", employee:emply})
+    } 
+    return res.status(404).send("Empleado no encontrado, GET BY ID")
+})  
 
 //Cambiar los datos sobre un empleado buscando por id
 employee.put("/:id([0-9]{1,3})",async(req,res,next)=>{
