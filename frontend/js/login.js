@@ -1,7 +1,7 @@
 window.onload = init;
 
 function init(){
-    if(!localStorage.getItem('token')){
+    if(!localStorage.getItem('token')){          
         document.querySelector('.btn-primary').addEventListener('click', login);
     }
     else{
