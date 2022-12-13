@@ -16,6 +16,7 @@ employee.post('/',async(req,res,next)=>{
     }
     return res.status(500).json({code:500,message:'Campos incompletos'})
 })
+
 //Eliminar empleados de la base de datos por id
 employee.delete ("/:id([0-9]{1,3})", async(req,res,next)=>{
     const query = `DELETE FROM empleados WHERE idEmpleado =${req.params.id}`
@@ -23,11 +24,13 @@ employee.delete ("/:id([0-9]{1,3})", async(req,res,next)=>{
     if (rows.affectedRows == 1) return res.status(200).json({code: 200, message: "Empleado borrado correctamente"})
     return res.status(404).json({code:404, message: "Empleado no encontrado"})
 })
+
 //Obtener todos los empleados de la base de datos
 employee.get("/",async(req,res,next)=>{
     const emply = await db.query('SELECT * FROM empleados')
     return res.status(200).json({code: 200, message: emply})
 })
+
 //Obtener un empleado por id
 employee.get('/:id([0-9]{1,3})',async(req,res,next)=>{
     const id=req.params.id
@@ -63,5 +66,6 @@ employee.get('/:name([A-Za-z]+)', async(req,res,next) => {
     }
     return res.status(404).send("Empleado no encontrado")
 })
+
 module.exports = employee
 

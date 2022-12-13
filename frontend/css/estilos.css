@@ -1,0 +1,224 @@
+*{
+    box-sizing: border-box;
+}
+h1{
+    border-radius: 30%;
+    padding: 50px;
+    padding-right: 200px;
+    background-color: #0b4110;
+    color: #ffffff;
+    align-items: center;
+    display: flex;
+}
+
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+
+    font-weight: 400;
+    color: #666666;
+    background: #eaeff4;
+}
+
+ul {
+    text-align: center;
+    width: 300%;
+    border: #000000;
+    display: flex;
+}
+
+.wrapper{ 
+    margin: 0 auto; 
+    width: 100%; 
+    max-width: 1140px; 
+    min-height: 40vh; 
+    display: flex; 
+    align-items:  center; 
+    justify-content: center; 
+    flex-direction: column; 
+}
+
+.cont{
+    background-color: #0b4110;
+    margin-left: -80%;
+    justify-content: center;
+}
+
+.container3{
+    padding-right: 1px;
+    margin-right: 1px;
+    margin-left: 10 0px;
+    display: flex;
+    justify-content: center;
+}
+.aaa{
+ justify-content: center;
+}
+
+.container2{
+    padding-right: 20px;
+    margin-right: 190px;
+}
+
+.container1{
+    padding: 10%;
+}
+
+.container{
+    margin: 50px;
+    padding: 10%;
+    border-radius: 40%;
+    position: relative; 
+    display: flex; 
+    background: #bdffae;
+    box-shadow: 0 0 250px #0b2f0d;
+}
+
+button{
+    
+    display: inline-block;
+    font-family: sans-serif;
+    padding: 7px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 30px;
+    color: #1b0d0d;
+    outline: none;
+    border: 1px solid #ffffff;
+    box-shadow: inset 0 0 0 0 #ffffff;
+    transition: .3s;
+}
+
+
+.login .col-left,
+.login .col-right{
+    padding: 50px;
+    display: flex;
+}
+.login .col-left{
+    width: 100%;
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    background: #2aa15f;
+}
+.login .col-right{
+    padding: 60px 30px;
+    width: 100%;
+    margin-left: -10%;
+}
+    .login .login-text{
+        position: relative;
+        width: 100%;
+        color: #ffffff;
+        text-align: center;
+    }
+    .login .login-text h2{
+        margin: 0 0 15px 0;
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+    }
+    .login .login-text p{
+        margin: 0 0 20px 0;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+    }
+    
+    .btn:hover{
+        color: #2aa15f;
+        box-shadow: inset 150px 0 0 0 #979797;
+    }
+    .login .login-form{
+        position: relative;
+        width: 100%;
+    }
+    .login .login-form h2{
+        margin: 0 0 15px 0;
+        font-size: 22px;
+        font-weight: 700;
+    }
+    .login .login-form p{
+        margin: 0 0 10px 0;
+        text-align: left;
+        color: #666666;
+        font-size: 15px;
+    }
+    .login .login-form p:last-child{
+        margin: 0;
+        padding-top: 3px;
+    }
+    .login .login-form p a{
+        color: #2aa15f;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    .login .login-form label {
+        display: block;
+        width: 100%;
+        margin-bottom: 2px;
+        letter-spacing: .5px;
+    }
+    .login .login-form p:last-child label{
+        width: 60%;
+        float: left;
+    }
+    .login .login-form label span{
+        color: #ff574e;
+        padding-left: 2px;
+    }
+    .login .login-form input{
+        display: block;
+        width: 100%;
+        height: 35px;
+        padding: 0 10px;
+        outline: none;
+        border: 1px solid #cccccc;
+        border-radius: 30px;
+    }
+    .login .login-form input:focus{
+        border-color: #ff574e;
+    }
+    .login .login-form button,
+    .login .login-form input[type=submit]{
+        display: inline-block;
+        width: 100%;
+        margin-top: 5px;
+        color: #2aa15f;
+        font-size: 16px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid #2aa15f;
+        border-radius: 30px;
+        box-shadow: inset 0 0 0 0 #2aa15f;
+        transition: .3s;
+    }
+
+
+
+
+table, th, td {
+    font-family: sans-serif,serif;
+    background-color: #a2d1a2;
+    padding: 10px;
+    color: #000000;
+    
+}
+
+table, th{
+    font-family: sans-serif,serif;
+    background-color: #136c47;
+    color:rgb(255, 255, 255);
+}
+table, tr:nth-child(even){
+    background-color: beige; 
+}
+table, tr:hover td{
+    background-color: #e4b4ad26;
+    color: black;
+}
+h1{
+    text-align: center;
+    font-family:sans-serif;
+}

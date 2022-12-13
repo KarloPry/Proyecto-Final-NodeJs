@@ -26,7 +26,7 @@ function login (){
         console.log(res.data)
         if(res.data.code===200){
             alert("Inicio exitoso")
-            localStorage.setItem('token', res.data.message)
+            localStorage.setItem('token', res.data.message);
             window.location.href = 'menuUsuario.html'
         }
         else {
