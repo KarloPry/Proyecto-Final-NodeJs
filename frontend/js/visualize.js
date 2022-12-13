@@ -1,13 +1,19 @@
 window.onload = init
 var headers = {}
 var url = 'http://localhost:3000'
+var employeeData = 0
+var empleadosFiltrados;
+
 
 function init (){
     if(localStorage.getItem("token")){
         headers = {
             headers: {
-                'Authorization': 'bearer '+ localStorage.getItem('token')
+                'Authorization': 'bearer ' + localStorage.getItem('token')
             }
+        }
+        if (localStorage.getItem(empleadosFiltrados)){
+            displayEmployees(empleadosFiltrados)
         }
         loadEmployees()
     }
@@ -19,16 +25,15 @@ function loadEmployees(){
     axios.get(url + "/employee", headers)
     .then(function(res){
         console.log(res)
-        displayEmployee(res.data.message)
+        displayEmployees(res.data.message)
     }).catch(function(err){
         console.log(err)
     })
 }
 
-function displayEmployee(employee){
+function displayEmployees(employee){
     console.log("Displaying...")
     var body = document.querySelector('body')
-    body.innerHTML += `<table style="width:70%;margin-left:auto;margin-right:auto;border-collapse:collapse;">`
     for(var i = 0; i < employee.length; i++){
         var table = document.querySelector('table')
         if (i == 0){
@@ -37,11 +42,27 @@ function displayEmployee(employee){
         var table = document.querySelector('table')
         table.innerHTML +=  `<tr><td>${employee[i].nombreEmpleado}</td> <td>${employee[i].apellidosEmpleado}</td><td>${employee[i].telefonoEmpleado}</td><td>${employee[i].correoEmpleado}</td><td>${employee[i].direccionEmpleado }</td></tr>`
     }
-    body.innerHTML += `</table>`
 
 }
 
-function modificar(id) {
-        const query = `DELETE FROM empleados WHERE idEmpleado =${id}`
-        const rows = db.query(query)
+
+function searchEmployee(){
+    console.log("Searching...")
+    var nombreDado = document.getElementById("input-search").value;
+    var nombreDado = String(nombreDado)
+    console.log("Tamos chill")
+    axios({
+        method: 'get',
+        url:    url+'/employeeSearch/'+nombreDado,
+        headers: {
+            'Authorization': 'bearer '+ localStorage.getItem('token')
+        }
+    }).then(function (res){
+        empleadosFiltrados = res.data.message
+        var table = document.querySelector('table')
+        table.innerHTML = ""
+        displayEmployees(empleadosFiltrados)
+    }).catch(function(err){
+        console.log(err)
+    })
 }

@@ -25,3 +25,16 @@ tr:hover td{
     background-color: rgb(218, 191, 244);
     color: white;
 }
+.search-container {
+    max-width: 600px;
+    margin: 50px auto;
+}
+input[type="text"] {
+    display: block;
+    width: calc(100% - 24px);
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d263b;
+    padding: 10px;
+    border: 1px solid #000000;
+}
