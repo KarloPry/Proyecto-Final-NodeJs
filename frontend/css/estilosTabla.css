@@ -25,10 +25,7 @@ tr:hover td{
     background-color: rgb(218, 191, 244);
     color: white;
 }
-.search-container {
-    max-width: 600px;
-    margin: 50px auto;
-}
+
 input[type="text"] {
     display: block;
     width: calc(100% - 24px);
